@@ -2,6 +2,7 @@ let buttonColours = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
+let gameStarted = false;
 let sounds = {
     "blue" : new Audio("./assets/sounds/blue.wav"),
     "red": new Audio("./assets/sounds/red.wav"),
@@ -59,8 +60,8 @@ $(".game-button").on("click", function() {
 })
 
 $(document).keypress(function() {
-    if (level === 0) {
+    if (!gameStarted) {
         nextSequence();
-        console.log("game started");
+        gameStarted = true;
     }
 });
